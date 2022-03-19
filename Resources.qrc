@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>font/LinBiolinum_R.otf</file>
+        <file>font/LICENSE.txt</file>
+        <file>icons/export.svg</file>
+        <file>icons/new.svg</file>
+        <file>icons/open.svg</file>
+        <file>icons/save.svg</file>
+        <file>icons/LICENSE.txt</file>
+    </qresource>
+</RCC>
