@@ -151,6 +151,7 @@ void LyricSlicer::on_actionNew_triggered(bool)
         ui->editTitle->clear();
         ui->editLyrics->clear();
         ui->spinSlidesPerVerse->setValue(1);
+        m_filepath.clear();
         m_modified = false;
     }
 }

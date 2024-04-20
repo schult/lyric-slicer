@@ -1,7 +1,9 @@
-QT += core gui widgets
+QT += core widgets
 CONFIG += c++17
 
 DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+ICON = icons/note2.icns
 
 SOURCES +=  main.cpp
 SOURCES += AboutDialog.cpp

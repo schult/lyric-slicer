@@ -11,6 +11,13 @@ AboutDialog::AboutDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QFile qt_license(":/qt/LICENSE.txt");
+    if (qt_license.open(QFile::ReadOnly | QFile::Text))
+    {
+        QTextStream qt_stream(&qt_license);
+        ui->editQtLicense->setText(qt_stream.readAll());
+    }
+
     QFile font_license(":/font/LICENSE.txt");
     if (font_license.open(QFile::ReadOnly | QFile::Text))
     {

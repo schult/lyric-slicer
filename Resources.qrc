@@ -7,5 +7,6 @@
         <file>icons/open.svg</file>
         <file>icons/save.svg</file>
         <file>icons/LICENSE.txt</file>
+        <file>qt/LICENSE.txt</file>
     </qresource>
 </RCC>
