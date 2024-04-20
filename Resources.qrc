@@ -2,10 +2,10 @@
     <qresource prefix="/">
         <file>font/LinBiolinum_R.otf</file>
         <file>font/LICENSE.txt</file>
-        <file>icons/export.svg</file>
-        <file>icons/new.svg</file>
-        <file>icons/open.svg</file>
-        <file>icons/save.svg</file>
+        <file>icons/ic_fluent_document_24_filled.svg</file>
+        <file>icons/ic_fluent_folder_open_24_filled.svg</file>
+        <file>icons/ic_fluent_save_24_filled.svg</file>
+        <file>icons/ic_fluent_share_24_filled.svg</file>
         <file>icons/LICENSE.txt</file>
         <file>qt/LICENSE.txt</file>
     </qresource>

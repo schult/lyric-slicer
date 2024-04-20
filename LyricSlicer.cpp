@@ -34,20 +34,8 @@ LyricSlicer::LyricSlicer(QWidget *parent)
     , ui(std::make_unique<Ui::LyricSlicer>())
 {
     ui->setupUi(this);
-
-    ui->buttonNew->setIcon(QIcon(":/icons/new.svg"));
-    ui->buttonOpen->setIcon(QIcon(":/icons/open.svg"));
-    ui->buttonSave->setIcon(QIcon(":/icons/save.svg"));
-    ui->buttonExport->setIcon(QIcon(":/icons/export.svg"));
-
-    connect(ui->buttonNew, &QToolButton::clicked,
-            ui->actionNew, &QAction::trigger);
-    connect(ui->buttonOpen, &QToolButton::clicked,
-            ui->actionOpen, &QAction::trigger);
-    connect(ui->buttonSave, &QToolButton::clicked,
-            ui->actionSave, &QAction::trigger);
-    connect(ui->buttonExport, &QToolButton::clicked,
-            ui->actionExport, &QAction::trigger);
+    setContextMenuPolicy(Qt::NoContextMenu);
+    ui->toolBar->insertWidget(ui->actionExport, ui->widgetSlideGroupSize);
 
     const int font_id = QFontDatabase::addApplicationFont(":/font/LinBiolinum_R.otf");
     const QString family = QFontDatabase::applicationFontFamilies(font_id).at(0);
@@ -284,7 +272,6 @@ void LyricSlicer::UpdateSlideNames()
 void LyricSlicer::UpdateExportReady()
 {
     ui->actionExport->setEnabled(!m_slides.isEmpty());
-    ui->buttonExport->setEnabled(!m_slides.isEmpty());
 }
 
 QMessageBox::StandardButton LyricSlicer::PromptToSave()

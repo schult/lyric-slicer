@@ -72,3 +72,6 @@ Sessionx.vim
 tags
 # Vim persistent undo
 [._]*.un~
+
+# Local build directory
+build
