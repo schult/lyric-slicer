@@ -1,0 +1,53 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+
+env:
+  BUILD_TYPE: release
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.7.*'
+
+      - name: QMake
+        run: |
+          mkdir build
+          cd build
+          qmake CONFIG+=${{env.BUILD_TYPE}} ..
+
+      - name: Build
+        working-directory: ./build
+        run: make
+
+      - name: Generate DMG
+        working-directory: ./build
+        run: macdeployqt LyricSlicer.app -dmg
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: build/LyricSlicer.dmg
+          retention-days: 7
+
+      - name: Upload Release
+        if: ${{ github.event_name == 'release' && github.event.action == 'created' }}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: gh release upload ${{github.ref_name}} build/LyricSlicer.dmg
