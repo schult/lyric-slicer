@@ -36,6 +36,7 @@ LyricSlicer::LyricSlicer(QWidget *parent)
     ui->setupUi(this);
     setContextMenuPolicy(Qt::NoContextMenu);
     ui->toolBar->insertWidget(ui->actionExport, ui->widgetSlideGroupSize);
+    ui->scrollContents->setBackgroundRole(QPalette::Base);
 
     const int font_id = QFontDatabase::addApplicationFont(":/font/LinBiolinum_R.otf");
     const QString family = QFontDatabase::applicationFontFamilies(font_id).at(0);
