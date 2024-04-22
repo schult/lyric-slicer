@@ -79,9 +79,22 @@ void SlideWidget::DrawPixmap()
     painter.fillRect(m_pixmap.rect(), Qt::black);
     painter.setPen(Qt::white);
 
-    const QRect text_rect = m_pixmap.rect().translated(0, -30);
-    painter.setFont(m_lyrics_font);
-    painter.drawText(text_rect, Qt::AlignCenter, m_lyrics);
+    {
+        const auto text_rect = m_pixmap.rect().marginsRemoved(QMargins(0, 0, 0, 60));
+        const auto target_rect = text_rect.marginsRemoved(QMargins(60, 60, 60, 60));
+
+        const QFontMetrics metrics(m_lyrics_font);
+        const QSizeF text_size = metrics.size(0, m_lyrics);
+        const auto x_scale = target_rect.width() / text_size.width();
+        const auto y_scale = target_rect.height() / text_size.height();
+        const auto scale = qBound(0.75, qMin(x_scale, y_scale), 1.0);
+
+        const auto pixel_size = qRound(m_lyrics_font.pixelSize() * scale);
+        auto lyrics_font = m_lyrics_font;
+        lyrics_font.setPixelSize(pixel_size);
+        painter.setFont(lyrics_font);
+        painter.drawText(text_rect, Qt::AlignCenter, m_lyrics);
+    }
 
     if(m_show_preview)
     {
