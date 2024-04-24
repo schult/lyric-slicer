@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>font/LinBiolinum_R.otf</file>
         <file>font/LICENSE.txt</file>
+        <file>font/LinBiolinum_R.otf</file>
         <file>icons/LICENSE.txt</file>
+        <file>LICENSE.txt</file>
         <file>qt/LICENSE.txt</file>
     </qresource>
 </RCC>

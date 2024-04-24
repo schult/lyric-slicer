@@ -15,45 +15,86 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="labelQtLicense">
+    <widget class="QLabel" name="labelVersion">
      <property name="text">
-      <string>Qt License</string>
+      <string>Version --</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QTextEdit" name="editQtLicense">
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="labelFontLicense">
+    <widget class="QLabel" name="labelBuild">
      <property name="text">
-      <string>Linux Biolinum font license</string>
+      <string>Build --</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QTextEdit" name="editFontLicense">
-     <property name="readOnly">
-      <bool>true</bool>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="labelIconLicense">
-     <property name="text">
-      <string>Fluent UI System Icons license</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QTextEdit" name="editIconLicense">
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
+     <widget class="QWidget" name="tabApp">
+      <attribute name="title">
+       <string>Lyric Slicer</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QTextEdit" name="editAppLicense">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabQt">
+      <attribute name="title">
+       <string>Qt</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTextEdit" name="editQtLicense">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabFont">
+      <attribute name="title">
+       <string>Linux Biolinum Font</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QTextEdit" name="editFontLicense">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabIcon">
+      <attribute name="title">
+       <string>Fluent UI System Icons</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QTextEdit" name="editIconLicense">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
