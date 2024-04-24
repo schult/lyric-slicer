@@ -30,7 +30,10 @@ jobs:
         run: |
           mkdir build
           cd build
-          qmake CONFIG+=${{env.BUILD_TYPE}} ..
+          qmake CONFIG+=${{env.BUILD_TYPE}} \
+            DEFINES+=VERSION_STRING='"\\\"${{github.event.release.name}}\\\""' \
+            DEFINES+=BUILD_NUMBER_STRING='"\\\"${{github.run_number}}\\\""' \
+            ..
 
       - name: Build
         working-directory: ./build
